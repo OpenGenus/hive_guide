@@ -1,1 +1,2 @@
-# hive_guide
+# hive
+hive basics
