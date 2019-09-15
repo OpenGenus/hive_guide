@@ -1,3 +1,5 @@
+Example 1 - Creating a databse containing the records of students of university Using External and managed tables 
+
 create database record;
 
 show databases;
@@ -42,7 +44,7 @@ select * from student_external;
 
 select * from student_external where rno=104;
 
-
+Example -2 Creating a Database of University Students using external and managed tables
 
 create database university;
 
