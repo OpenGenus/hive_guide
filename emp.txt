@@ -1,0 +1,3 @@
+abhishek,50000,chandigarh
+karan,40000,ludhiana
+aman,60000,delhi

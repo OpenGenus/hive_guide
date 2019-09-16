@@ -1,0 +1,12 @@
+1,priya,cse,c1
+2,riya,cse,c1
+3,aman,cse,c2
+4,raman,cse,c2
+5,ram,ece,e1
+6,sham,ece,e1
+7,abhay,ece,e2
+8,ajay,ece,e2
+9,ritika,me,m1
+10,karan,me,m1
+11,himansu,me,m2
+12,abhishek,me,m2
