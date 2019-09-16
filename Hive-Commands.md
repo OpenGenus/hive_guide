@@ -66,28 +66,26 @@ LOAD DATA LOCAL INPATH '/home/cloudera/input-data.txt' INTO TABLE students;
 select * from students;
 
 create table studentsbybranch(rno int,name string,section string) partitioned by (branch string) clustered by (section) into 2 buckets row format delimited fields terminated by ',';
-
+```
+```
 set hive.exec.dynamic.partition.mode=nonstrict;
 set hive.exec.dynamic.partition=true;
 set hive.enforce.bucketing=true;
-
-
-from students s insert overwrite table studentsbybranch partition(branch) select s.rno,s.name,s.section,s.branch distribute by branch;
+```
+```
+from students insert overwrite table studentsbybranch partition(branch) select s.rno,s.name,s.section,s.branch distribute by branch;
 
 hadoop fs -ls /user/hive/warehouse/university.db
-
 hadoop fs -ls /user/hive/warehouse/university.db/studentsbybranch
-
-
 hadoop fs -ls /user/hive/warehouse/university.db/studentsbybranch/branch=cse
-
 hadoop fs -cat /user/hive/warehouse/university.db/studentsbybranch/branch=cse/000000_0
-
 hadoop fs -cat /user/hive/warehouse/university.db/studentsbybranch/branch=cse/000001_0
-
+```
+```
 select * from studentsbybranch limit 6;
-
-
+```
+# Example -3 Creating Mailid and Employee External tables
+```
 create table mailid(name string, email string) row format delimited fields terminated by ',';
 
 load data local inpath '/home/cloudera/email.txt' into table mailid;
@@ -95,42 +93,13 @@ load data local inpath '/home/cloudera/email.txt' into table mailid;
 create table employee(name string, salary float, city string) row format delimited fields terminated by ',';
 
 load data local inpath '/home/cloudera/emp.txt' into table employee;
-
+```
+```
 select * from employee;
 select * from mailid;
-
+```
+```
 select e.name, e.city,e.salary,m.email from employee e join mailid m on e.name=m.name
-
 select e.name, e.city,e.salary,m.email from employee e left join mailid m on e.name=m.name
-
 select e.name, e.city,e.salary,m.email from employee e full outer join mailid m on e.name=m.name;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
